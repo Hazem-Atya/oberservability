@@ -122,5 +122,5 @@ Add a job in prometheus.yml <br>
 <a href="https://grafana.com/grafana/dashboards/14694-windows-exporter-dashboard/">grafana dashboards</a> => Copy its id
    
    </li>
-<li>Import the dashboard in grafa (using the id copied grafana dashboards)  </li>
+<li>Import the dashboard in grafana (using the id copied grafana dashboards)  </li>
 </ul>
