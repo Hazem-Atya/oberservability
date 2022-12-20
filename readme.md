@@ -86,7 +86,7 @@ Add to new data srouce <br>  <br>
 </li>
 <li>  
 Create a new data source (add a new panel with prometheus as the data source) <br>  <br>
- <img   src="assets/imgs/grafana2.PNG">
+ <img   src="assets/imgs/grafana2.png">
 </li>
 
 </ul>
