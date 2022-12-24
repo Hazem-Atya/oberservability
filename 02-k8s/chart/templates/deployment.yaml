@@ -10,7 +10,7 @@ metadata:
     app: factorial
 
 spec:
-  replicas: {{ .Values.deployment.replica }}
+  replicas: {{ .Values.deployment.replicas }}
 
   selector:
     matchLabels:
@@ -25,7 +25,7 @@ spec:
       containers:
         - name: factorial
 
-          image: docker.io/laykidi/factorial:latest
+          image: docker.io/laykidi/factorial:{{ .Values.image.tag }}
 
           ports:
             - containerPort: 3000

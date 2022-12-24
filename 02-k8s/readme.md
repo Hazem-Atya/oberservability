@@ -52,4 +52,12 @@ chart
     │   
 
 ```
-`helm install  "factorial-service" chart/`
+* `helm install  "factorial-service" chart/`: "factorial-service" is the name of the release
+* `helm uninstall  "factorial-service"`
+* `helm install  "factorial-service" chart/ -f chart/custom-values.yaml `: Overwrite the default values of values.yaml by specifying a yaml vualues containing your custom values
+* `helm tepmplate  "factorial-service" chart/` :  print the manifest 
+
+## Loadbalancer
+
+
+`kubectl get pods -o wide` :  shows pods with more details (pod IPs )
