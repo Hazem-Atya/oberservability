@@ -61,3 +61,4 @@ chart
 
 
 `kubectl get pods -o wide` :  shows pods with more details (pod IPs )
+![image](https://user-images.githubusercontent.com/53778545/209442891-674349b3-96a1-4d68-b143-1c6a31983ae9.png)
