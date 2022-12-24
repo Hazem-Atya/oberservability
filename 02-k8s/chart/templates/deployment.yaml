@@ -1,0 +1,31 @@
+# manifest kubernetes file
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: fact-deployment
+
+  labels:
+    app: factorial
+
+spec:
+  replicas: {{ .Values.deployment.replica }}
+
+  selector:
+    matchLabels:
+      app: factorial
+
+  template:
+    metadata:
+      labels:
+        app: factorial
+
+    spec:
+      containers:
+        - name: factorial
+
+          image: docker.io/laykidi/factorial:latest
+
+          ports:
+            - containerPort: 3000
