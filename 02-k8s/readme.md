@@ -57,8 +57,19 @@ chart
 * `helm install  "factorial-service" chart/ -f chart/custom-values.yaml `: Overwrite the default values of values.yaml by specifying a yaml vualues containing your custom values
 * `helm tepmplate  "factorial-service" chart/` :  print the manifest 
 
-## Loadbalancer
+## Exposing prometheus
+<br>
 
-
-`kubectl get pods -o wide` :  shows pods with more details (pod IPs )
 ![image](https://user-images.githubusercontent.com/53778545/209442891-674349b3-96a1-4d68-b143-1c6a31983ae9.png)
+<br><br>
+`kubectl get pods -o wide` :  shows pods with more details (pod IPs ) <br> 
+`kubectl port-forward prometheus-hazem-server-786fbb4b44-h9nc9  7500:9090`: port forward to prometheus server pod
+
+To allow prometheus to detect the pods, edit the deployment.yaml by adding these annotations under spec-> template -> metadeata
+```yaml
+      annotations:
+        prometheus.io/port: "3500"
+        prometheus.io/path: "/metrics"
+        prometheus.io/scrape: "true"
+``` 
+

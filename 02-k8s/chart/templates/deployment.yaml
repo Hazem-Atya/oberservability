@@ -18,6 +18,10 @@ spec:
 
   template:
     metadata:
+      annotations:
+        prometheus.io/port: "3500"
+        prometheus.io/path: "/metrics"
+        prometheus.io/scrape: "true"
       labels:
         app: factorial
 
@@ -28,4 +32,4 @@ spec:
           image: docker.io/laykidi/factorial:{{ .Values.image.tag }}
 
           ports:
-            - containerPort: 3000
+            - containerPort: 3500
