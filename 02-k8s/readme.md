@@ -1,11 +1,3 @@
-# Creating a cluster
-
-## Choice1 : Azure
-
-## Choice2:
-
-- Install `kind`
-- create new cluster using `kind cluster create`
 
 # Prometheus helm
 ## What is helm?
