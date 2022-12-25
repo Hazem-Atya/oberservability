@@ -65,3 +65,4 @@ To allow prometheus to detect the pods, edit the deployment.yaml by adding these
         prometheus.io/scrape: "true"
 ``` 
 
+Note: every pod has its metric
