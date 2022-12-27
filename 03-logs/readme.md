@@ -44,6 +44,9 @@ Giving a unique id for each request can help us track the workflow that led to t
 
 
 # Datadog in K8s
+<img src="https://user-images.githubusercontent.com/53778545/209701384-34ce5ca8-bb19-4e8e-a310-a7a2b8008377.png" style="width:500px">
+<img src="https://user-images.githubusercontent.com/53778545/209701489-bfcb798d-cd86-43ca-a33c-09c1854fab7f.png" style="width:700px">
+
 ## Installing data dog
 The helm charts of datadog: [https://github.com/DataDog/helm-charts](https://github.com/DataDog/helm-charts)
 ```
