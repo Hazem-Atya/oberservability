@@ -1,0 +1,15 @@
+datadog: 
+  site: datadoghq.com
+
+  # for azure only
+  kubelet:
+    tlsVerify: false
+  
+  logs: 
+    enabled: true
+    containerCollectAll: true
+  otlp:
+    receiver:
+      protocols:
+        grpc:     # grpc is a protocol (like tcp, udp,..)
+          enabled: true
