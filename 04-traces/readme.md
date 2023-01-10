@@ -42,8 +42,30 @@ In our case datadog works as a daemonSet (A DaemonSet ensures that all (or some)
 
 # Tracing our factorial app
 
-* Installing opentelemetry SDK ([https://opentelemetry.io/docs/instrumentation/js/getting-started/nodejs/](https://opentelemetry.io/docs/instrumentation/js/getting-started/nodejs/)
-
-
+* Installing the needed nodejs dependencies.
+* add this bloc to datadog-values.yaml
+```yaml
+  otlp:
+    receiver:
+      protocols:
+        grpc:     # grpc is a protocol (like tcp, udp,..)
+          enabled: true
+```
+* add the exporter ip and port to the containers env variable (inside deployment.yaml):
+```yaml
+          env:
+           # The first env  variable gets the host ip (the node ip). 
+           # this env variable is not static, it's known in the run time.
+            - name: HOST_IP
+                  valueFrom:
+                    fieldRef:
+                      fieldPath: status.hostIP
+           # the second env variable uses the previous variable.
+            - name: OTEL_EXPORTER_OTLP_ENDPOINT  
+              value: "http://$(HOST_IP):55680"
+            - name: OTEL_SERVICE_NAME
+              value: "fact-service"
+```
+* Adding traces to the app code.
 
 
