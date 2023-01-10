@@ -1,4 +1,11 @@
 
+# GitOps and ArgoCD?
+* GitOps is a way of implementing Continuous Deployment for cloud native applications. 
+* Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes.
+
+<br>
+
+![image](https://user-images.githubusercontent.com/53778545/211683880-c73599ac-a57e-482f-aba3-739a1b7abb45.png)
 
 The <b>synchronize</b> can be:
   * automatic (with every git push)
@@ -18,3 +25,11 @@ Since the GitOps engine is a seperated app, it needs to be hosted. We have two c
 and we no longer can use it to revert to a previous state. <br>
 
 The majority of the gitops engines are stateless (they don't hold a state, they just read from the git repo and try to apply the changes).
+
+# Working with argo CD:
+* [Installing argo CD](https://argo-cd.readthedocs.io/en/stable/getting_started/)
+* ![image](https://user-images.githubusercontent.com/53778545/211684722-a20628d3-1bb6-4ae1-90d2-49622b73654d.png)
+*  Port forward to the argo CD server `kubectl port-forward -n argocd svc/argocd-server 8080:80`
+<br>When we open `http://localhost:8080` we'll get a security warning. Argo CD uses SSL but the used certificate is not real. In production we need to generate a valid SSL certificate.
+* Argo CD creates a passpord and stores it as a secret in the cluster. [Getting the password](https://argo-cd.readthedocs.io/en/stable/getting_started/#4-login-using-the-cli).
+* Login using `admin` for the username and the password.
