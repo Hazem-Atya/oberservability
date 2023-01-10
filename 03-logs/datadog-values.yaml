@@ -1,4 +1,7 @@
 datadog: 
+  site: datadoghq.com
+
+  # for azure only
   kubelet:
     tlsVerify: false
   

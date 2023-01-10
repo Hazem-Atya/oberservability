@@ -5,3 +5,4 @@
 {"level":"debug","message":"This is a debug"}
 {"level":"info","message":"Hello distributed log files!","request_id":20}
 {"level":"info","message":"Hello distributed log files!","request_id":"1564"}
+{"level":"info","message":"Hello distributed log files!","request_id":"1564"}
