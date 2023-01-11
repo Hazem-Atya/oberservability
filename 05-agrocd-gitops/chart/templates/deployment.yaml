@@ -1,0 +1,35 @@
+# manifest kubernetes file
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: fact-deployment
+
+  labels:
+    app: factorial
+
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+
+  selector:
+    matchLabels:
+      app: factorial
+
+  template:
+    metadata:
+      annotations:
+        prometheus.io/port: "3500"
+        prometheus.io/path: "/metrics"
+        prometheus.io/scrape: "true"
+      labels:
+        app: factorial
+
+    spec:
+      containers:
+        - name: factorial
+
+          image: docker.io/laykidi/factorial:{{ .Values.image.tag }}
+
+          ports:
+            - containerPort: 3500
