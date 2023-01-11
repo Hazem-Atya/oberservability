@@ -33,3 +33,14 @@ The majority of the gitops engines are stateless (they don't hold a state, they 
 <br>When we open `http://localhost:8080` we'll get a security warning. Argo CD uses SSL but the used certificate is not real. In production we need to generate a valid SSL certificate.
 * Argo CD creates a passpord and stores it as a secret in the cluster. [Getting the password](https://argo-cd.readthedocs.io/en/stable/getting_started/#4-login-using-the-cli).
 * Login using `admin` for the username and the password.
+* Create an application inside argo CD. Two possible approches: 
+  * Imperative approch (from the UI).
+  * Declarative approach (using a yaml file containing the application definition).
+
+Fields of the application creation form:
+* Project name: A project englobes many different apps. We can create a new project from argoCD settings. We can limit the repositories, namespaces, the clusters,... We can also deny the creation of certain k8s resources through `CLUSTER RESOURCE DENY LIST`.  In this case, we'll use the default project
+* Sync policy: manual or automatic.
+* Git repo and path (path to the chart)
+* cluster URL and namespace
+
+
