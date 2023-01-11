@@ -41,6 +41,27 @@ Fields of the application creation form:
 * Project name: A project englobes many different apps. We can create a new project from argoCD settings. We can limit the repositories, namespaces, the clusters,... We can also deny the creation of certain k8s resources through `CLUSTER RESOURCE DENY LIST`.  In this case, we'll use the default project
 * Sync policy: manual or automatic.
 * Git repo and path (path to the chart)
-* cluster URL and namespace
+* cluster URL and namespace.
 
+After selecting the path to the chart, we can specify the values files, the last file more a higher priority, argo CD passed to the previous file only if the value is not specified.:
+![image](https://user-images.githubusercontent.com/53778545/211690998-4cbd81fc-c1e2-4b14-a762-ce5f73f09547.png)
+<br> We can also change specify the values manually (the values specified manually have more priority)
+* We then create our application and proceed to sync. <br>
+ If the namespace specified in the app details does not exists we(ll get an error. We either create the namespace manually or we edit the app details and tick `Auto-Create Namespace`.
+ ![image](https://user-images.githubusercontent.com/53778545/211691784-7b71d207-3d76-4bae-b13b-e64c7e8196d0.png)
+<br>
 
+If we update our chart the current sync state becomes: `OutOfSync`. <br>
+We can see the difference between the current state and the desired state through `APP DIFF`: <br>
+![image](https://user-images.githubusercontent.com/53778545/211692596-3fb93009-ec54-40e0-8921-ae96e3ec1004.png) <br> <br>
+We can rollback to a previous state through `HISTORY AND ROLLBACK`
+
+* We can get argo cd applications through the command: `kubectl get applications.argoproj.io -n argocd`
+* `kubectl delete  applications.argoproj.io -n argocd fact-service` : delete the application.
+# Declatrative setup  ([argo cd docs](https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#applications)).
+We can use the spec of the app we created manually (app details -> manifest).
+* `kubectl apply -n argocd -f 05-agrocd-gitops/argo-app.yaml `
+* `kubectl get applications.argoproj.io -n argocd`
+ 
+ 
+ 
