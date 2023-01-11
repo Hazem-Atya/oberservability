@@ -63,5 +63,12 @@ We can use the spec of the app we created manually (app details -> manifest).
 * `kubectl apply -n argocd -f 05-agrocd-gitops/argo-app.yaml `
 * `kubectl get applications.argoproj.io -n argocd`
  
- 
- 
+# Auto sync
+* Edit the sync policy in argo-app.yaml file:
+```yaml
+  syncPolicy:
+    automated: {}
+```
+* `kubectl apply -n argocd -f 05-agrocd-gitops/argo-app.yaml ` <br>
+=> CHnagements will be applied automatically after a push.
+
